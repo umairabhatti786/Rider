@@ -37,11 +37,12 @@ const CustomInput = ({
   width,
   rightSource,
   height,
-  onRightSource,
   leftSource,
   rightSourceSize,
   borderWidth,
-  marginTop
+  marginTop,
+  leftSourceSize,
+  onLeftSource
 }: InputProps) => {
   return (
     <View style={{ width: width || "100%" }}>
@@ -50,27 +51,41 @@ const CustomInput = ({
         style={{
           flexDirection: "row",
           alignItems: "center",
-          paddingHorizontal: sizeHelper.calWp(35),
-          height: sizeHelper.calHp(height || 100),
-          borderRadius: borderRadius,
-          borderWidth: borderWidth,
-          borderColor: borderColor,
+          paddingRight: sizeHelper.calWp(25),
+          height: sizeHelper.calHp(height || 90),
+          borderRadius: sizeHelper.calWp(borderRadius ||30),
+          borderWidth: borderWidth ||1,
+          borderColor: borderColor ||theme.colors.white,
           backgroundColor: backgroundColor || theme.colors.white,
           elevation: 2,
-          marginTop:marginTop
+          shadowRadius:2,
+          gap:sizeHelper.calWp(20)
         }}
       >
-        {leftSource && (
-          <Image
-            source={leftSource}
+
+           {leftSource && (
+          <TouchableOpacity
+            onPress={onLeftSource}
+            disabled={!onLeftSource}
+            activeOpacity={0.6}
             style={{
-              width: sizeHelper.calWp(30),
-              height: sizeHelper.calWp(30),
-              marginRight: sizeHelper.calWp(15),
+              justifyContent: "center",
+              alignItems: "center",
+            height:"100%",
+            paddingLeft:sizeHelper.calWp(25)
             }}
-            resizeMode="contain"
-          />
+          >
+            <Image
+              source={leftSource}
+              style={{
+                width: sizeHelper.calWp(leftSourceSize || 45),
+                height: sizeHelper.calWp(leftSourceSize || 45),
+              }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
         )}
+       
 
         <TextInput
           value={value}
@@ -79,8 +94,8 @@ const CustomInput = ({
           allowFontScaling={false}
           style={{
             flex: 1,
-            fontSize: sizeHelper.calHp(fontSize || 26),
-            height: "100%",
+            fontSize: sizeHelper.calHp(fontSize || 25),
+            height: leftSource?"90%":"100%",
             fontFamily: fontFamily || fonts.IBMPlexSansArabic_Regular,
             fontWeight: fontWeight || "400",
             color: color || theme.colors.black,
@@ -102,27 +117,18 @@ const CustomInput = ({
           autoCapitalize="none"
         />
 
-        {rightSource && (
-          <TouchableOpacity
-            onPress={onRightSource}
-            disabled={!onRightSource}
-            activeOpacity={0.6}
+         {rightSource && (
+          <Image
+            source={rightSource}
             style={{
-              marginLeft: sizeHelper.calWp(15),
-              justifyContent: "center",
-              alignItems: "center",
+              width:sizeHelper.calWp(rightSourceSize|| 35),
+              height: sizeHelper.calWp(rightSourceSize|| 35),
             }}
-          >
-            <Image
-              source={rightSource}
-              style={{
-                width: sizeHelper.calWp(rightSourceSize || 40),
-                height: sizeHelper.calWp(rightSourceSize || 40),
-              }}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
+            resizeMode="contain"
+          />
         )}
+
+     
       </View>
     </View>
   );

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, StyleSheet, Image, StatusBar } from "react-native";
-import sizeHelper from "../../../utils/Helpers";
-import { images } from "../../../assets/images";
-import { CommonActions } from "@react-navigation/native";
+import React, { useEffect, useRef, useState } from 'react';
+import { View, StyleSheet, Image, StatusBar } from 'react-native';
+import sizeHelper from '../../../utils/Helpers';
+import { images } from '../../../assets/images';
+import { CommonActions } from '@react-navigation/native';
+import SplashLogo from '../../../assets/svgs/splashLogo.svg';
 
 function SplashScreen({ navigation }: any) {
   useEffect(() => {
@@ -18,28 +19,28 @@ function SplashScreen({ navigation }: any) {
 
   return (
     <>
-      <StatusBar
-      hidden={true}
-      />
+      <StatusBar showHideTransition={"none"} />
 
       <View style={{ flex: 1 }}>
         <Image
-          style={{ width: "100%", height: "100%" }}
-          source={images.splash} />
+          style={{ width: '100%', height: '100%' }}
+          source={images.splash}
+        />
 
         <View
           style={{
-            width: "100%",
+            width: '100%',
             height: sizeHelper.calHp(150),
-            position: "absolute",
-            justifyContent: "center",
-            alignItems: "center",
-            top: "45%",
+            position: 'absolute',
+            justifyContent: 'center',
+            alignItems: 'center',
+            top: '45%',
           }}
         >
-
-          <Image
-          source={images.logo} />
+          <SplashLogo
+            height={sizeHelper.calWp(300)}
+            width={sizeHelper.calWp(300)}
+           />
         </View>
       </View>
     </>

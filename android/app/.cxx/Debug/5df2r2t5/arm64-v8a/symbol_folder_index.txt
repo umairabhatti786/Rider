@@ -1,0 +1,1 @@
+/Users/droidor/Documents/GitHub/Rider/android/app/build/intermediates/cxx/Debug/5df2r2t5/obj/arm64-v8a

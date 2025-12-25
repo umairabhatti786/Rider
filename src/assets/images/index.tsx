@@ -11,6 +11,7 @@ export const images = {
     dollar: require("../images/dollar.png"),
     profile: require("../images/profile.png"),
 
+    login_background: require("../images/login_background.png"),
 
 
 }

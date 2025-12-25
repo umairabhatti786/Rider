@@ -1,236 +1,214 @@
-import React, { useState } from "react";
-import { Image, StatusBar, View } from "react-native";
-import CustomText from "../../../components/Text";
-import { images } from "../../../assets/images";
-import ScreenLayout from "../../../components/ScreenLayout";
-import sizeHelper from "../../../utils/Helpers";
-import { theme } from "../../../utils/Themes";
-import CustomInput from "../../../components/Input";
-import { icons } from "../../../assets/icons";
-import CustomButton from "../../../components/Button";
-import GradientText from "../../../GradientText";
-import SimpleToggleButton from "../../../components/SimpleToggleButton";
-import { fonts } from "../../../utils/Themes/fonts";
-import OrderDetailModal from "../../../components/OrderDetailModal";
+import React, { useMemo, useRef, useState } from 'react';
+import { Image, StatusBar, View } from 'react-native';
+import CustomText from '../../../components/Text';
+import { images } from '../../../assets/images';
+import ScreenLayout from '../../../components/ScreenLayout';
+import sizeHelper from '../../../utils/Helpers';
+import { theme } from '../../../utils/Themes';
+import CustomButton from '../../../components/Button';
+import { fonts } from '../../../utils/Themes/fonts';
+import OrderDetailModal from '../../../components/OrderDetailModal';
+import CustomMenu from '../../../components/CustomMenu';
+import { appStyles } from '../../../utils/GlobalStyles';
+import GradientText from '../../../GradientText';
+import CashIcon from '../../../assets/svgs/cash.svg';
+import CustomBottomSheet from '../../../components/CustomBottomSheet';
+import AcceptOrderSheet from '../../../components/AcceptOrderSheet';
 
 function OrderPage({ navigation }: any) {
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    return (
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isOffline, setIsOffline] = useState(true);
+  const snapToPoints = useMemo(() => ['50%', '90%'], []);
+  const isAcceptOrderSheetRef = useRef<any>(null);
 
-        <ScreenLayout style={{ flex: 1, backgroundColor: theme.colors.white }} >
-            <StatusBar
-                hidden={true}
-            />
+  return (
+    <ScreenLayout
+      backgroundColor={theme.colors.background}
+      style={{
+        flex: 1,
+        backgroundColor: theme.colors.background,
+        gap: sizeHelper.calHp(10),
+      }}
+    >
+      <CustomMenu isOffline={isOffline} setIsOffline={setIsOffline} />
+      <CustomText
+        text={'الطلبات الجديدة'}
+        size={36}
+        fontWeight={'700'}
+        style={{
+          marginTop: sizeHelper.calHp(70),
+          alignSelf: 'flex-end',
+          fontFamily: fonts.IBMPlexSansArabic_Bold,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: theme.colors.white,
+          borderWidth: 1,
+          borderColor: '#ACB3BE',
+          borderRadius: sizeHelper.calWp(20),
+          shadowColor: theme.colors.black,
+          elevation: 2,
+          shadowRadius: 2,
+          padding: sizeHelper.calWp(12),
+        }}
+      >
+        <View
+          style={{ padding: sizeHelper.calWp(20), gap: sizeHelper.calHp(20) }}
+        >
+          <View
+            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
+          >
             <View
-                style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                }}
+              style={{
+                backgroundColor: theme.colors.buttonbackground,
+                paddingHorizontal: sizeHelper.calWp(20),
+                paddingTop: sizeHelper.calHp(3),
+                borderRadius: 999,
+                alignItems: 'center',
+                justifyContent: 'center',
+                alignSelf: 'flex-start',
+              }}
             >
-                <View
-                    style={{
-                        backgroundColor: theme.colors.white,
-                        padding: sizeHelper.calWp(20),
-                        borderRadius: sizeHelper.calWp(999),
-                        shadowColor: '#000',
-                        elevation: 5
-
-                    }}
-                >
-                    <Image
-                        source={images.customer_care}
-                        style={{
-                            width: sizeHelper.calWp(50),
-                            height: sizeHelper.calWp(50)
-                        }}
-                    />
-                </View>
-                <View
-                    style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        backgroundColor: theme.colors.white,
-                        padding: sizeHelper.calWp(20),
-                        borderRadius: sizeHelper.calWp(999),
-                        shadowColor: '#000',
-                        elevation: 5,
-                        gap: sizeHelper.calWp(20),
-                        width: sizeHelper.calWp(270)
-
-                    }}
-                >
-                    <SimpleToggleButton />
-                    <CustomText
-                        text={"متصل"}
-                        color="#FF4500"
-                        size={28}
-                    />
-                </View>
-                <View
-                    style={{
-                        backgroundColor: theme.colors.white,
-                        padding: sizeHelper.calWp(20),
-                        borderRadius: sizeHelper.calWp(999),
-                        shadowColor: '#000',
-                        elevation: 5
-
-                    }}
-                >
-                    <Image
-                        source={images.menu}
-                        style={{
-                            width: sizeHelper.calWp(50),
-                            height: sizeHelper.calWp(50)
-                        }}
-                    />
-                </View>
+              <CustomText
+                text={'#12345'}
+                size={22}
+                fontFam={fonts.IBMPlexSansArabic_Medium}
+                fontWeight="600"
+                color={theme.colors.primary}
+              />
             </View>
-            <CustomText
-                text={"الطلبات الجديدة"}
-                size={36}
-                fontWeight={"800"}
+
+            <View>
+              <GradientText
+                text={'مقهى روقة | Roka Cafe'}
+                size={30}
+                fontWeight="700"
+                fontFamily={fonts.IBMPlexSansArabic_Bold}
                 style={{
-                    marginTop: sizeHelper.calHp(120),
-                    alignSelf: 'flex-end',
-                    fontFamily: fonts.IBMPlexSansArabic_Bold
+                  textAlign: 'center',
                 }}
-            />
+              >
+                <CustomText
+                  text={'مقهى روقة | Roka Cafe'}
+                  size={30}
+                  fontFam={fonts.IBMPlexSansArabic_Bold}
+                  fontWeight="700"
+                />
+              </GradientText>
+
+              <CustomText
+                text={'الدوار الثاني, قرية اللقية - النقب '}
+                color={theme.colors.jet_black}
+                // size={22}
+              />
+            </View>
+          </View>
+
+          <View style={appStyles.rowjustify}>
             <View
-                style={{
-                    backgroundColor:theme.colors.white,
-                    borderWidth:1,
-                    borderColor:"#ACB3BE",
-                    borderRadius:sizeHelper.calWp(30),
-                    shadowColor:theme.colors.black,
-                    elevation:5,
-                    padding:sizeHelper.calWp(30)
-                }}
+              style={{
+                alignItems: 'flex-end',
+                paddingLeft: sizeHelper.calWp(30),
+              }}
             >
-                <View
-                    style={{
-                        flexDirection: 'row',
-                        alignItems:'center',
-                        justifyContent: 'space-between'
-                    }}
-                >
-                    <View
-                    // Left
-                    >
-                        <View
-                            style={{
-                                backgroundColor: theme.colors.buttonbackground,
-                                padding:sizeHelper.calWp(4),
-                                width:sizeHelper.calWp(150),
-                                borderRadius:sizeHelper.calWp(20),
-                                alignItems:'center',
-                                justifyContent:'center'
-                            }}
-                        >
-                            <CustomText
-                                text={"#12345"}
-                                color="#E91219"
-                            />
-                        </View>
-                        <View 
-                        style={{
-                            alignItems:'flex-end',
-                            marginTop:sizeHelper.calHp(40)
-                        }}
-                        >
-                            <CustomText
-                                text={"طريقة الدفع:"}
-                                color="#5C5C5C"
-                                size={24}
-                            />
-                            <View
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems:'center',
-                                    gap: sizeHelper.calWp(10)
-                                }}
-                            >
-                                <CustomText
-                                    text={"نقداً"}
-                                    size={26}
-                                    fontWeight="700"
-                                />
-                                <Image
-                                    source={images.dollar}
-                                    style={{
-                                        width: sizeHelper.calWp(28),
-                                        height: sizeHelper.calWp(28)
-                                    }}
-                                />
-                            </View>
-                        </View>
-                    </View>
-                    <View
-                    // right
-                    >
-                        <CustomText
-                            text={"مقهى روقة | Roka Cafe"}
-                            color="#FF4500"
-                            size={25}
-                            fontWeight="700"
-                            style={{
-                                textAlign:'right'
-                            }}
-                        />
-                        <CustomText
-                            text={"الدوار الثاني, قرية اللقية - النقب "}
-                            color="#333333"
-                            size={22}
-                        />
-                        <View
-                        style={{
-                            alignItems:'flex-end',
-                            marginTop:sizeHelper.calHp(40)}}
-                        >
-                            <CustomText
-                                text={"المكسب:"}
-                                color="#5C5C5C"
-                                size={24}
-                            />
-                            <CustomText
-                                text={"₪ 25"}
-                                size={34}
-                                fontWeight="700"
-                            />
-                        </View>
-
-                    </View>
-                </View>
-                <View
+              <CustomText
+                text={'طريقة الدفع:'}
+                color={theme.colors.graphite_gray}
+                size={21}
+              />
+              <View
                 style={{
-                    marginTop:sizeHelper.calHp(25),
-                    gap:sizeHelper.calWp(20)
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: sizeHelper.calWp(10),
                 }}
-                >
-                    <CustomButton
-                        text="قبول الطلب"
-                        textColor={"#15803D"}
-                        bgColor={"#C3E3D0"}
-                        width={'100%'}
-                        borderRadius={20}
-                        
-                        />
-                    <CustomButton
-                        text="قبول الطلب"
-                        textColor={"#E91219"}
-                        borderWidth={1}
-                        borderColor={"#FA6E23"}
-                        bgColor={"#F5F5F5"}
-                        width={'100%'}
-                        borderRadius={20}
-                        onPress={() => setIsModalVisible(true)}
-
-                        />
-                </View>
+              >
+                <CustomText text={'نقداً'} size={30} fontWeight="700" />
+                <CashIcon />
+              </View>
             </View>
-            
-            <OrderDetailModal isVisible={isModalVisible} setIsVisible={setIsModalVisible} />
-        </ScreenLayout>)
+
+            <View
+              style={{
+                alignItems: 'flex-end',
+              }}
+            >
+              <CustomText
+                text={'المكسب:'}
+                color={theme.colors.graphite_gray}
+                size={21}
+              />
+              <CustomText
+                text={'₪ 25'}
+                size={30}
+                fontWeight="700"
+                fontFam={fonts.IBMPlexSansArabic_Bold}
+              />
+            </View>
+          </View>
+        </View>
+
+        <View
+          style={{
+            gap: sizeHelper.calWp(20),
+            paddingBottom: sizeHelper.calHp(10),
+          }}
+        >
+          <CustomButton
+            text="قبول الطلب"
+            textColor={'#15803D'}
+            bgColor={'#C3E3D0'}
+            width={'100%'}
+            onPress={() => isAcceptOrderSheetRef.current.present()}
+            height={73}
+            borderRadius={12}
+          />
+          <CustomButton
+            // text="قبول الطلب"
+            borderWidth={1}
+            height={75}
+            borderColor={'#FA6E23'}
+            bgColor={theme.colors.background}
+            borderRadius={12}
+            onPress={() => setIsModalVisible(true)}
+          >
+            <GradientText
+              size={30}
+              fontWeight="700"
+              fontFamily={fonts.IBMPlexSansArabic_Bold}
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              <CustomText
+                text={'التفاصيل'}
+                size={30}
+                fontFam={fonts.IBMPlexSansArabic_Bold}
+                fontWeight="700"
+              />
+            </GradientText>
+          </CustomButton>
+        </View>
+      </View>
+
+      <CustomBottomSheet
+        snap={snapToPoints}
+        bottomSheetModalRef={isAcceptOrderSheetRef}
+      >
+        <AcceptOrderSheet 
+
+        onComplete={()=>isAcceptOrderSheetRef?.current?.dismiss()}
+
+
+                onClose={()=>isAcceptOrderSheetRef?.current?.dismiss()}
+
+        />
+      </CustomBottomSheet>
+
+     
+    </ScreenLayout>
+  );
 }
 
 export default OrderPage;

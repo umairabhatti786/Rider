@@ -10,7 +10,6 @@ const Stack = createNativeStackNavigator<any>();
 const AppStack = () => {
   return (
     <>
-      <StatusBar translucent backgroundColor="#F1F0F2" barStyle="dark-content" />
 
       <Stack.Navigator screenOptions={{ headerShown: false }}>
 

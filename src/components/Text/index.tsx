@@ -21,10 +21,10 @@ const CustomText = ({
 }: TextType) => {
   const memoizedStyle = useMemo(() => {
     const baseStyle = {
-      color: color || theme.colors.secondry,
+      color: color || theme.colors.black,
       fontSize: sizeHelper.calHp(size || 20),
       fontWeight: fontWeight || "500",
-      fontFamily: fontFam || fonts.IBMPlexSansArabic_Regular,
+      fontFamily: fontFam ||
       textTransform,
       textDecorationLine,
       ...(lineHeight ? { lineHeight } : {}),

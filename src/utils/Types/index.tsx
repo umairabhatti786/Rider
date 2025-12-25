@@ -77,6 +77,8 @@ export type InputProps = {
   leftSource?:any
   rightSourceSize?:any
   marginTop?:any
+  leftSourceSize?:any
+  onLeftSource?:any
 };
 
 

@@ -2,36 +2,50 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 import MaskedView from "@react-native-masked-view/masked-view";
 import LinearGradient from "react-native-linear-gradient";
+import { fonts } from "../utils/Themes/fonts";
+import sizeHelper from "../utils/Helpers";
 
-const GradientText = ({ text, style ,size }:any) => {
+const GradientText = ({ style, children,gradent, ...rest}: any) => {
   return (
     <MaskedView
       maskElement={
-        <Text style={[style, styles.text]}>
-          {text}
+        <Text style={[styles.text, style, {}]} {...rest}>
+          {children}
         </Text>
       }
     >
       <LinearGradient
-        colors={["#ff7a18", "#ff3d00"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
+        colors={gradent||["#FB6D23", "#E91219",]}
+        start={{ x: 0, y: 0.5 }}
+        end={{ x: 1, y: 0.5 }}
       >
-        <Text style={[style, styles.hidden, {fontSize:size}] }>
-          {text}
+        <Text
+          style={[
+            styles.text,
+            style,
+            {
+              opacity: 0,
+              fontFamily:
+                 fonts.IBMPlexSansArabic_Bold,
+            },
+          ]}
+          {...rest}
+        >
+          {children}
         </Text>
       </LinearGradient>
     </MaskedView>
   );
 };
 
-export default GradientText;
-
 const styles = StyleSheet.create({
   text: {
-    backgroundColor: "transparent",
+    fontSize: sizeHelper.calHp(30),
+    fontWeight: "bold",
   },
-  hidden: {
-    opacity: 0,
+  gradient: {
+    flex: 1,
   },
 });
+
+export default GradientText;

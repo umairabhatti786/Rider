@@ -25,7 +25,7 @@ interface ScreenLayoutProps {
 const ScreenLayout: React.FC<ScreenLayoutProps> = ({
   children,
   style,
-  backgroundColor = theme.colors.white,
+  backgroundColor = theme.colors.background,
   paddingTop
 }) => {
 
@@ -33,10 +33,11 @@ const ScreenLayout: React.FC<ScreenLayoutProps> = ({
 
   return (
     <>
-
+<StatusBar backgroundColor={theme.colors.white} barStyle={"dark-content"}/>
       <SafeAreaView style={[styles.background, {
-        backgroundColor,
-        paddingTop: sizeHelper.calHp(paddingTop || 30),
+        backgroundColor:backgroundColor||theme.colors.background,
+        paddingTop: sizeHelper.calHp(paddingTop ||10),
+
 
 
       }]}>
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
-    backgroundColor: theme.colors.white
+    backgroundColor: theme.colors.background
 
   },
   container: {
@@ -59,6 +60,8 @@ const styles = StyleSheet.create({
     gap: sizeHelper.calHp(30),
     paddingHorizontal: sizeHelper.calWp(36),
     marginTop: sizeHelper.calHp(14),
+        backgroundColor: theme.colors.background
+
 
   },
 });

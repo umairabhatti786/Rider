@@ -30,7 +30,7 @@ const GradientText = ({
   const memoizedStyle = useMemo(() => {
     const baseStyle: ViewStyle = {
       width: width,
-      height: sizeHelper.calHp(height || 90),
+      height: sizeHelper.calHp(height || 85),
       backgroundColor: bgColor,
       justifyContent: 'center',
       alignItems: 'center',

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { TouchableOpacity, View, StyleSheet, Animated } from "react-native";
 import sizeHelper from "../../utils/Helpers";
+import { theme } from "../../utils/Themes";
 
-const SimpleToggleButton = () => {
-  const [isOn, setIsOn] = useState(false);
+const SimpleToggleButton = ({isOn,setIsOn}:any) => {
   const translateX = useState(new Animated.Value(0))[0];
 
   const toggle = () => {
@@ -22,7 +22,7 @@ const SimpleToggleButton = () => {
       activeOpacity={0.8}
       style={[
         styles.container,
-        { backgroundColor: !isOn ? "#FF4500" : "#ACB3BE" },
+        { backgroundColor: isOn ? "#FF4500" : "#ACB3BE" },
       ]}
     >
       <Animated.View
@@ -39,16 +39,15 @@ export default SimpleToggleButton;
 
 const styles = StyleSheet.create({
   container: {
-    width:sizeHelper.calWp(110),
-    height: sizeHelper.calHp(54),
-    borderRadius: sizeHelper.calWp( 40),
-    padding:sizeHelper.calWp( 6),
+    width:sizeHelper.calWp(100),
+    borderRadius: 999,
+    padding:sizeHelper.calWp(5),
     justifyContent: "center",
   },
   circle: {
-    width:sizeHelper.calWp(48),
-    height: sizeHelper.calHp(42),
-    borderRadius: sizeHelper.calWp(26),
-    backgroundColor: "#fff",
+    width:sizeHelper.calWp(43),
+    height: sizeHelper.calWp(43),
+    borderRadius: sizeHelper.calWp(43),
+    backgroundColor:theme.colors.white,
   },
 });
