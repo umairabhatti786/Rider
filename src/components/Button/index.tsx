@@ -32,7 +32,7 @@ const CustomButton = ({
       backgroundColor: bgColor || theme.colors.buttonbackground,
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: sizeHelper.calHp(borderRadius || 25),
+      borderRadius: sizeHelper.calHp(borderRadius || 23),
       borderWidth: borderWidth || 0,
       borderColor: borderColor,
       paddingHorizontal: paddingHorizontal,
@@ -60,7 +60,7 @@ const CustomButton = ({
       activeOpacity={0.5}
       style={memoizedStyle}
     >
-         {children}
+       
          {
           text&&(
 
@@ -74,7 +74,7 @@ const CustomButton = ({
 
           )
          }
-     
+       {children}
    
     </TouchableOpacity>
   );

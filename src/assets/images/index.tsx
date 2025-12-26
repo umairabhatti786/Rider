@@ -10,6 +10,10 @@ export const images = {
     frame: require("../images/frame.png"),
     dollar: require("../images/dollar.png"),
     profile: require("../images/profile.png"),
+    user: require("../images/user.jpg"),
+    pakistan: require("../images/pakistan.png"),
+    india: require("../images/india.png"),
+    nigeria: require("../images/nigeria.png"),
 
     login_background: require("../images/login_background.png"),
 

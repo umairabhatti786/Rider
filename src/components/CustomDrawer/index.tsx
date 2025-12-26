@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useWindowDimensions,
   View,
@@ -12,6 +12,29 @@ import {
 import Modal from "react-native-modal";
 import { theme } from "../../utils/Themes";
 import sizeHelper from "../../utils/Helpers";
+import { images } from "../../assets/images";
+import GradientText from "../../GradientText";
+import CustomText from "../Text";
+import CustomButton from "../Button";
+
+import { fonts } from "../../utils/Themes/fonts";
+import GradientCapitalSetting from "../../assets/svgs/gradientCapitalSetting.svg";
+import CapitalSetting from "../../assets/svgs/capitalSetting.svg";
+import Transactions from "../../assets/svgs/transactions.svg";
+import GradientTransactions from "../../assets/svgs/gradientTransactions.svg";
+import GradientOrderHistory from "../../assets/svgs/gradientOrderHistory.svg";
+import OrderHistory from "../../assets/svgs/orderHistory.svg";
+import Headphone from "../../assets/svgs/headphone.svg";
+
+import Wallet from "../../assets/svgs/wallet.svg";
+import GradientWallet from "../../assets/svgs/gradientWallet.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getSelectedMenu,
+  setSelectedMenu,
+} from "../../redux/reducers/authReducer";
+import { appStyles } from "../../utils/GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {
   isModalVisible?: boolean;
@@ -21,70 +44,122 @@ interface Props {
   signatureBottomSheetRef?: any;
 }
 
-const CustomMenu: React.FC<Props> = ({
-  isModalVisible,
-  setModalVisible,
-  modalBackgroundColor,
-  setIsLogoutVisible,
-  signatureBottomSheetRef,
-}) => {
+const CustomDrawer: React.FC<Props> = ({ isModalVisible, setModalVisible }) => {
+  const dispatch = useDispatch();
   const windowWidth = useWindowDimensions().width;
-  // const [selectedMenu,setSelectedMenu]=useState(-1)
- 
-//   const menuData = [
-//     {
-//       title: "Profile",
-//       icon: images.profile,
+  const selectedMenu = useSelector(getSelectedMenu);
+  const [isShowModal, setIsShowModal] = useState(false);
 
-//       onPress: (title: any) => {
-//         dispatch(setSelectedMenu(title));
-//         setModalVisible(false);
-//         setTimeout(() => {
-//           setSelectedMenu(-1);
+  const navigation:any=useNavigation()
 
-//           navigation.navigate("Profile", { id: authUser?.id });
-//         }, 500);
-//       },
-//     },
+  const menuData = [
+    {
+      id: 1,
+      title: "أعدادات الكابتن",
+      icon:
+        selectedMenu === 1 ? (
+          <GradientCapitalSetting
+            width={sizeHelper.calWp(40)}
+            height={sizeHelper.calWp(40)}
+          />
+        ) : (
+          <CapitalSetting
+            width={sizeHelper.calWp(40)}
+            height={sizeHelper.calWp(40)}
+          />
+        ),
+      onPress: () => {
+        dispatch(setSelectedMenu(1));
+        setModalVisible(false);
 
-//     {
-//       title: "Invoices",
-//       icon: images.invoice,
+        setTimeout(() => {
+          navigation.navigate("CaptainSettings");
+        }, 500);
+      },
+    },
 
-//       onPress: (title: any) => {
-//         dispatch(setSelectedMenu(title));
-//         setModalVisible(false);
-//         setTimeout(() => {
-//           navigation.navigate("Invoices");
-//         }, 500);
-//       },
-//     },
-//     {
-//       title: "Change Password",
-//       icon: images.lock,
+    {
+      id: 2,
+      title: "المعاملات",
+      icon:
+        selectedMenu === 2 ? (
+          <GradientTransactions
+            width={sizeHelper.calWp(40)}
+            height={sizeHelper.calWp(40)}
+          />
+        ) : (
+          <Transactions
+            width={sizeHelper.calWp(40)}
+            height={sizeHelper.calWp(40)}
+          />
+        ),
+      onPress: () => {
+        dispatch(setSelectedMenu(2));
+        setModalVisible(false);
 
-//       onPress: (title: any) => {
-//         dispatch(setSelectedMenu(title));
-//         setModalVisible(false);
-//         setTimeout(() => {
-//           navigation.navigate("UpdatePassword");
-//         }, 500);
-//       },
-//     },
+        setTimeout(() => {
+          // navigation.navigate("Invoices");
+        }, 500);
+      },
+    },
 
-//     {
-//       title: "Videos",
-//       icon: images.video_player,
+    {
+      id: 3,
+      title: "سجل الطلبات",
+      icon:
+        selectedMenu === 3 ? (
+          <GradientOrderHistory
+            width={sizeHelper.calWp(40)}
+            height={sizeHelper.calWp(40)}
+          />
+        ) : (
+          <OrderHistory
+            width={sizeHelper.calWp(40)}
+            height={sizeHelper.calWp(40)}
+          />
+        ),
+      onPress: () => {
+        dispatch(setSelectedMenu(3));
+        setModalVisible(false);
 
-//       onPress: (title: any) => {
-//         dispatch(setSelectedMenu(title));
-//         setModalVisible(false);
-//         setTimeout(() => {
-//           navigation.navigate("VideoGuide");
-//         }, 500);
-//       },
-//     },
-//   ];
+        setTimeout(() => {
+          navigation.navigate("OrderHistory");
+        }, 500);
+      },
+    },
+
+    {
+      id: 4,
+      title: "المحفظة",
+      icon:
+        selectedMenu === 4 ? (
+          <GradientWallet
+            width={sizeHelper.calWp(40)}
+            height={sizeHelper.calWp(40)}
+          />
+        ) : (
+          <Wallet width={sizeHelper.calWp(40)} height={sizeHelper.calWp(40)} />
+        ),
+      onPress: () => {
+        dispatch(setSelectedMenu(4));
+        setModalVisible(false);
+
+        setTimeout(() => {
+          navigation.navigate("WalletScreen");
+        }, 500);
+      },
+    },
+  ];
+
+  useEffect(() => {
+    if (isModalVisible) {
+      setTimeout(() => {
+        setIsShowModal(true);
+      }, 300);
+    } else {
+      setIsShowModal(false);
+    }
+  }, [isModalVisible]);
 
   return (
     <>
@@ -94,11 +169,11 @@ const CustomMenu: React.FC<Props> = ({
           margin: 0,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "transparent",
+          backgroundColor: isShowModal ? "rgba(0,0,0,.2)" : "transparent",
           //   backgroundColor: isModalVisible?  'rgba(0,0,0,.4)':"transparent",
         }}
-        animationIn="slideInLeft"
-        animationOut="slideOutLeft"
+        animationIn="slideInRight"
+        animationOut="slideOutRight"
         deviceWidth={windowWidth}
         isVisible={isModalVisible}
         onBackButtonPress={() => setModalVisible?.(false)}
@@ -112,11 +187,113 @@ const CustomMenu: React.FC<Props> = ({
         }
       >
         <View style={styles.container}>
-          
+          <View
+            style={{
+              alignSelf: "flex-end",
+              flexDirection: "row-reverse",
+              gap: sizeHelper.calWp(30),
+              alignItems: "center",
+            }}
+          >
+            <Image
+              style={{
+                width: sizeHelper.calWp(140),
+                height: sizeHelper.calWp(140),
+                borderRadius: sizeHelper.calWp(140),
+              }}
+              source={images.user}
+            />
+            <View style={{ alignItems: "flex-end" }}>
+              <GradientText
+                text={"اديب الجوابرة"}
+                size={27}
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <CustomText
+                  text={"اديب الجوابرة"}
+                  fontFam={fonts.IBMPlexSansArabic_Bold}
+                  fontWeight="700"
+                  style={{ lineHeight: sizeHelper.calHp(40) }}
+                  size={34}
+                />
+              </GradientText>
+
+              <CustomText
+                text={"+972 50-123-1234"}
+                fontFam={fonts.IBMPlexSansArabic_Medium}
+                fontWeight="600"
+                style={{ lineHeight: sizeHelper.calHp(35) }}
+                size={22}
+              />
+
+              <CustomText
+                text={"info@yallajetk.com"}
+                fontFam={fonts.IBMPlexSansArabic_Medium}
+                fontWeight="600"
+                style={{ lineHeight: sizeHelper.calHp(35) }}
+                size={22}
+              />
+            </View>
+          </View>
+
+          <View style={{ flex: 1 }}>
+            {menuData.map((item, index) => {
+              return (
+                <TouchableOpacity
+                key={index.toString()}
+                  onPress={item?.onPress}
+                  style={{
+                    ...appStyles.row,
+                    gap: sizeHelper.calWp(15),
+                    alignSelf: "flex-end",
+                    paddingVertical: sizeHelper.calHp(17),
+                  }}
+                >
+                  <GradientText
+                    gradent={
+                      item?.id == selectedMenu
+                        ? ["#FB6D23", "#E91219"]
+                        : ["#333333", "#333333"]
+                    }
+                    text={"اديب الجوابرة"}
+                    size={27}
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    <CustomText
+                      text={item?.title}
+                      fontFam={fonts.IBMPlexSansArabic_Bold}
+                      fontWeight="700"
+                      style={{ lineHeight: sizeHelper.calHp(40) }}
+                      size={30}
+                    />
+                  </GradientText>
+                  {item?.icon}
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+
+          <CustomButton
+            text="مركز خدمة الزبائن"
+            width={"100%"}
+            onPress={() =>
+              setTimeout(() => {
+                setModalVisible(false);
+              }, 500)
+            }
+            height={73}
+          >
+            <Headphone
+              width={sizeHelper.calWp(40)}
+              height={sizeHelper.calWp(40)}
+            />
+          </CustomButton>
         </View>
       </Modal>
-
-     
     </>
   );
 };
@@ -124,14 +301,16 @@ const CustomMenu: React.FC<Props> = ({
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    width: "70%",
-    paddingTop: "7%",
+    width: "80%",
+    paddingTop: "10%",
     backgroundColor: theme.colors.white,
-    gap: sizeHelper.calHp(15),
+    gap: sizeHelper.calHp(70),
     paddingBottom: sizeHelper.calHp(50),
-    alignSelf: "flex-start",
+    paddingHorizontal: sizeHelper.calWp(30),
+    alignSelf: "flex-end",
+    borderTopLeftRadius: sizeHelper.calWp(20),
+    borderBottomLeftRadius: sizeHelper.calWp(20),
   },
-  
 });
 
-export default CustomMenu;
+export default CustomDrawer;

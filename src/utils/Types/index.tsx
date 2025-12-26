@@ -79,6 +79,7 @@ export type InputProps = {
   marginTop?:any
   leftSourceSize?:any
   onLeftSource?:any
+  isDisableShadow?:any
 };
 
 
@@ -94,5 +95,53 @@ export type DropDownProps = {
   top?:any,
   onActions?:(item:any)=>void,
   label?:any
+};
+
+export type PhoneInputProps = {
+  placeholder?: string;
+  error?: string;
+  secureTextEntry?: boolean;
+  rightSource?: any;
+  keyboard?: any;
+  props?: any;
+  value?: any;
+  onChangeText?: any;
+  onBlur?: any;
+  onShowPassword?: any;
+  editable?: boolean;
+  color?: string;
+  maxLength?: number;
+  leftSource?: any;
+  fontWeight?: any;
+  multiline?: boolean;
+  height?: any;
+  width?: any;
+  fontSize?: any;
+  placeholderTextColor?: any;
+  borderWidth?: any;
+  borderRadius?: any;
+  backgroundColor?: any;
+  borderColor?: any;
+  rightSourceSize?: any;
+  textAlign?: any;
+  textAlignVertical?: any;
+  paddingTop?: any;
+  onSubmitEditing?: () => void;
+  mandatory?:boolean
+  label?:string
+  complusory?:boolean
+  labelSize?:any
+  onFocus?:any
+  focusedInput?:any
+  inputKey?:string,
+  Children?:any
+  defaultValue?:any
+  selection?:any
+  disable?:any
+  onSelectionChange?:any
+  setFocusedInput?:any
+  textColor?:any
+  isFocused?:any
+  labelColor?:any
 };
 

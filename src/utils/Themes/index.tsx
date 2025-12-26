@@ -11,6 +11,10 @@ export const theme = {
     steel_gray:"#6B7480",
     jet_black:"#333333",
     graphite_gray:"#5C5C5C",
+    input_background:"#EBEBEB",
+    border:"#D9D9D9",
+    light_green:"#E2FEEC",
+    green:"#0C660F"
    
   },
 };

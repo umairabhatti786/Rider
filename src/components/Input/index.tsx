@@ -42,7 +42,8 @@ const CustomInput = ({
   borderWidth,
   marginTop,
   leftSourceSize,
-  onLeftSource
+  onLeftSource,
+  isDisableShadow
 }: InputProps) => {
   return (
     <View style={{ width: width || "100%" }}>
@@ -57,8 +58,8 @@ const CustomInput = ({
           borderWidth: borderWidth ||1,
           borderColor: borderColor ||theme.colors.white,
           backgroundColor: backgroundColor || theme.colors.white,
-          elevation: 2,
-          shadowRadius:2,
+          elevation:isDisableShadow|| 2,
+          shadowRadius:isDisableShadow||2,
           gap:sizeHelper.calWp(20)
         }}
       >
@@ -94,7 +95,7 @@ const CustomInput = ({
           allowFontScaling={false}
           style={{
             flex: 1,
-            fontSize: sizeHelper.calHp(fontSize || 25),
+            fontSize: sizeHelper.calHp(fontSize || 22),
             height: leftSource?"90%":"100%",
             fontFamily: fontFamily || fonts.IBMPlexSansArabic_Regular,
             fontWeight: fontWeight || "400",
