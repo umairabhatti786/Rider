@@ -1,25 +1,29 @@
-import React, { useMemo, useRef, useState } from 'react';
-import { Image, StatusBar, View } from 'react-native';
-import CustomText from '../../../components/Text';
-import { images } from '../../../assets/images';
-import ScreenLayout from '../../../components/ScreenLayout';
-import sizeHelper from '../../../utils/Helpers';
-import { theme } from '../../../utils/Themes';
-import CustomButton from '../../../components/Button';
-import { fonts } from '../../../utils/Themes/fonts';
-import OrderDetailModal from '../../../components/OrderDetailModal';
-import CustomMenu from '../../../components/CustomMenu';
-import { appStyles } from '../../../utils/GlobalStyles';
-import GradientText from '../../../GradientText';
-import CashIcon from '../../../assets/svgs/cash.svg';
-import CustomBottomSheet from '../../../components/CustomBottomSheet';
-import AcceptOrderSheet from '../../../components/AcceptOrderSheet';
+import React, { useMemo, useRef, useState } from "react";
+import { Image, StatusBar, View } from "react-native";
+import CustomText from "../../../components/Text";
+import { images } from "../../../assets/images";
+import ScreenLayout from "../../../components/ScreenLayout";
+import sizeHelper from "../../../utils/Helpers";
+import { theme } from "../../../utils/Themes";
+import CustomButton from "../../../components/Button";
+import { fonts } from "../../../utils/Themes/fonts";
+import OrderDetailModal from "../../../components/OrderDetailModal";
+import CustomMenu from "../../../components/CustomMenu";
+import { appStyles } from "../../../utils/GlobalStyles";
+import GradientText from "../../../GradientText";
+import CashIcon from "../../../assets/svgs/cash.svg";
+import CustomBottomSheet from "../../../components/CustomBottomSheet";
+import AcceptOrderSheet from "../../../components/AcceptOrderSheet";
+import PickupOrderSheet from "./PickupOrderSheet";
+import DeliverOrderSheet from "./DeliverOrderSheet";
 
 function OrderPage({ navigation }: any) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isOffline, setIsOffline] = useState(true);
-  const snapToPoints = useMemo(() => ['50%', '90%'], []);
+  const snapToPoints = useMemo(() => ["50%", "90%"], []);
   const isAcceptOrderSheetRef = useRef<any>(null);
+  const isPickupOrderSheetRef = useRef<any>(null);
+  const isDeliverOrderSheetRef = useRef<any>(null);
 
   return (
     <ScreenLayout
@@ -32,12 +36,12 @@ function OrderPage({ navigation }: any) {
     >
       <CustomMenu isOffline={isOffline} setIsOffline={setIsOffline} />
       <CustomText
-        text={'الطلبات الجديدة'}
+        text={"الطلبات الجديدة"}
         size={36}
-        fontWeight={'700'}
+        fontWeight={"700"}
         style={{
           marginTop: sizeHelper.calHp(70),
-          alignSelf: 'flex-end',
+          alignSelf: "flex-end",
           fontFamily: fonts.IBMPlexSansArabic_Bold,
         }}
       />
@@ -45,7 +49,7 @@ function OrderPage({ navigation }: any) {
         style={{
           backgroundColor: theme.colors.white,
           borderWidth: 1,
-          borderColor: '#ACB3BE',
+          borderColor: "#ACB3BE",
           borderRadius: sizeHelper.calWp(20),
           shadowColor: theme.colors.black,
           elevation: 2,
@@ -57,7 +61,7 @@ function OrderPage({ navigation }: any) {
           style={{ padding: sizeHelper.calWp(20), gap: sizeHelper.calHp(20) }}
         >
           <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
             <View
               style={{
@@ -65,13 +69,13 @@ function OrderPage({ navigation }: any) {
                 paddingHorizontal: sizeHelper.calWp(20),
                 paddingTop: sizeHelper.calHp(3),
                 borderRadius: 999,
-                alignItems: 'center',
-                justifyContent: 'center',
-                alignSelf: 'flex-start',
+                alignItems: "center",
+                justifyContent: "center",
+                alignSelf: "flex-start",
               }}
             >
               <CustomText
-                text={'#12345'}
+                text={"#12345"}
                 size={22}
                 fontFam={fonts.IBMPlexSansArabic_Medium}
                 fontWeight="600"
@@ -81,16 +85,16 @@ function OrderPage({ navigation }: any) {
 
             <View>
               <GradientText
-                text={'مقهى روقة | Roka Cafe'}
+                text={"مقهى روقة | Roka Cafe"}
                 size={30}
                 fontWeight="700"
                 fontFamily={fonts.IBMPlexSansArabic_Bold}
                 style={{
-                  textAlign: 'center',
+                  textAlign: "center",
                 }}
               >
                 <CustomText
-                  text={'مقهى روقة | Roka Cafe'}
+                  text={"مقهى روقة | Roka Cafe"}
                   size={30}
                   fontFam={fonts.IBMPlexSansArabic_Bold}
                   fontWeight="700"
@@ -98,7 +102,7 @@ function OrderPage({ navigation }: any) {
               </GradientText>
 
               <CustomText
-                text={'الدوار الثاني, قرية اللقية - النقب '}
+                text={"الدوار الثاني, قرية اللقية - النقب "}
                 color={theme.colors.jet_black}
                 // size={22}
               />
@@ -108,39 +112,39 @@ function OrderPage({ navigation }: any) {
           <View style={appStyles.rowjustify}>
             <View
               style={{
-                alignItems: 'flex-end',
+                alignItems: "flex-end",
                 paddingLeft: sizeHelper.calWp(30),
               }}
             >
               <CustomText
-                text={'طريقة الدفع:'}
+                text={"طريقة الدفع:"}
                 color={theme.colors.graphite_gray}
                 size={21}
               />
               <View
                 style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
+                  flexDirection: "row",
+                  alignItems: "center",
                   gap: sizeHelper.calWp(10),
                 }}
               >
-                <CustomText text={'نقداً'} size={30} fontWeight="700" />
+                <CustomText text={"نقداً"} size={30} fontWeight="700" />
                 <CashIcon />
               </View>
             </View>
 
             <View
               style={{
-                alignItems: 'flex-end',
+                alignItems: "flex-end",
               }}
             >
               <CustomText
-                text={'المكسب:'}
+                text={"المكسب:"}
                 color={theme.colors.graphite_gray}
                 size={21}
               />
               <CustomText
-                text={'₪ 25'}
+                text={"₪ 25"}
                 size={30}
                 fontWeight="700"
                 fontFam={fonts.IBMPlexSansArabic_Bold}
@@ -157,9 +161,9 @@ function OrderPage({ navigation }: any) {
         >
           <CustomButton
             text="قبول الطلب"
-            textColor={'#15803D'}
-            bgColor={'#C3E3D0'}
-            width={'100%'}
+            textColor={"#15803D"}
+            bgColor={"#C3E3D0"}
+            width={"100%"}
             onPress={() => isAcceptOrderSheetRef.current.present()}
             height={73}
             borderRadius={12}
@@ -168,7 +172,7 @@ function OrderPage({ navigation }: any) {
             // text="قبول الطلب"
             borderWidth={1}
             height={75}
-            borderColor={'#FA6E23'}
+            borderColor={"#FA6E23"}
             bgColor={theme.colors.background}
             borderRadius={12}
             onPress={() => setIsModalVisible(true)}
@@ -178,11 +182,11 @@ function OrderPage({ navigation }: any) {
               fontWeight="700"
               fontFamily={fonts.IBMPlexSansArabic_Bold}
               style={{
-                textAlign: 'center',
+                textAlign: "center",
               }}
             >
               <CustomText
-                text={'التفاصيل'}
+                text={"التفاصيل"}
                 size={30}
                 fontFam={fonts.IBMPlexSansArabic_Bold}
                 fontWeight="700"
@@ -196,17 +200,48 @@ function OrderPage({ navigation }: any) {
         snap={snapToPoints}
         bottomSheetModalRef={isAcceptOrderSheetRef}
       >
-        <AcceptOrderSheet 
+        <AcceptOrderSheet
+          onComplete={() => {
+            isAcceptOrderSheetRef?.current?.dismiss();
 
-        onComplete={()=>isAcceptOrderSheetRef?.current?.dismiss()}
-
-
-                onClose={()=>isAcceptOrderSheetRef?.current?.dismiss()}
-
+            setTimeout(() => {
+              isPickupOrderSheetRef?.current?.present();
+            }, 500);
+          }}
+          onClose={() => isAcceptOrderSheetRef?.current?.dismiss()}
         />
       </CustomBottomSheet>
 
-     
+      <CustomBottomSheet
+        snap={snapToPoints}
+        bottomSheetModalRef={isPickupOrderSheetRef}
+      >
+        <PickupOrderSheet
+          onComplete={() => {
+            isPickupOrderSheetRef?.current?.dismiss();
+
+            setTimeout(() => {
+              isDeliverOrderSheetRef?.current?.present();
+            }, 500);
+          }}
+          onClose={() => isPickupOrderSheetRef?.current?.dismiss()}
+        />
+      </CustomBottomSheet>
+
+      <CustomBottomSheet
+        snap={snapToPoints}
+        bottomSheetModalRef={isDeliverOrderSheetRef}
+      >
+        <DeliverOrderSheet
+          onComplete={() => {
+            isDeliverOrderSheetRef?.current?.dismiss();
+            setTimeout(() => {
+              navigation.navigate("OrderDelivered");
+            }, 1000);
+          }}
+          onClose={() => isDeliverOrderSheetRef?.current?.dismiss()}
+        />
+      </CustomBottomSheet>
     </ScreenLayout>
   );
 }

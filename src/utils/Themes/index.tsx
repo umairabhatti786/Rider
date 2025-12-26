@@ -14,7 +14,9 @@ export const theme = {
     input_background:"#EBEBEB",
     border:"#D9D9D9",
     light_green:"#E2FEEC",
-    green:"#0C660F"
+    green:"#0C660F",
+    check_green:"#129D16",
+    sky_blue:"#3BCFFF"
    
   },
 };

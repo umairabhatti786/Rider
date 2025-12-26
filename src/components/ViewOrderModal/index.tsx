@@ -5,198 +5,137 @@ import {
   StyleSheet,
   TouchableOpacity,
   Pressable,
-  Image,
-  Platform,
-  Alert,
 } from "react-native";
 import Modal from "react-native-modal";
 import { theme } from "../../utils/Themes";
 import sizeHelper from "../../utils/Helpers";
-import { images } from "../../assets/images";
-import GradientText from "../../GradientText";
 import CustomText from "../Text";
-import CustomButton from "../Button";
 import { fonts } from "../../utils/Themes/fonts";
-import GradientCapitalSetting from "../../assets/svgs/gradientCapitalSetting.svg";
-import CapitalSetting from "../../assets/svgs/capitalSetting.svg";
-import Transactions from "../../assets/svgs/transactions.svg";
-import GradientTransactions from "../../assets/svgs/gradientTransactions.svg";
-import GradientOrderHistory from "../../assets/svgs/gradientOrderHistory.svg";
-import OrderHistory from "../../assets/svgs/orderHistory.svg";
 import CrossBtn from "../../assets/svgs/cross.svg";
-
-import Wallet from "../../assets/svgs/wallet.svg";
-import GradientWallet from "../../assets/svgs/gradientWallet.svg";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getSelectedMenu,
-  setSelectedMenu,
-} from "../../redux/reducers/authReducer";
+import TickIcon from "../../assets/svgs/tick.svg";
+import LocationEmoji from "../../assets/svgs/locationEmoji.svg";
+import CallIcon from "../../assets/svgs/call.svg";
+import MessageIcon from "../../assets/svgs/message.svg";
 import { appStyles } from "../../utils/GlobalStyles";
-import { useNavigation } from "@react-navigation/native";
 
 interface Props {
   isModalVisible?: boolean;
   setModalVisible?: any;
-  modalBackgroundColor?: any;
-  setIsLogoutVisible?: any;
-  signatureBottomSheetRef?: any;
 }
 
 const ViewOrderModal: React.FC<Props> = ({
   isModalVisible,
   setModalVisible,
 }) => {
-  const dispatch = useDispatch();
   const windowWidth = useWindowDimensions().width;
-  const selectedMenu = useSelector(getSelectedMenu);
-  const [isShowModal, setIsShowModal] = useState(false);
-
-  const navigation: any = useNavigation();
-
-  const menuData = [
+  const OrderTimelineData = [
     {
-      id: 1,
-      title: "أعدادات الكابتن",
-      icon:
-        selectedMenu === 1 ? (
-          <GradientCapitalSetting
-            width={sizeHelper.calWp(40)}
-            height={sizeHelper.calWp(40)}
-          />
-        ) : (
-          <CapitalSetting
-            width={sizeHelper.calWp(40)}
-            height={sizeHelper.calWp(40)}
-          />
-        ),
-      onPress: () => {
-        dispatch(setSelectedMenu(1));
-        setModalVisible(false);
-
-        setTimeout(() => {
-          navigation.navigate("CaptainSettings");
-        }, 500);
-      },
+      time: "16:52",
+      address: "تم ألتقاط الطلب من X Cafe",
+      order_received: "تم استلام في 1د و 20ث",
+      isChecked: true,
     },
-
-    {
-      id: 2,
-      title: "المعاملات",
-      icon:
-        selectedMenu === 2 ? (
-          <GradientTransactions
-            width={sizeHelper.calWp(40)}
-            height={sizeHelper.calWp(40)}
-          />
-        ) : (
-          <Transactions
-            width={sizeHelper.calWp(40)}
-            height={sizeHelper.calWp(40)}
-          />
-        ),
-      onPress: () => {
-        dispatch(setSelectedMenu(2));
-        setModalVisible(false);
-
-        setTimeout(() => {
-          // navigation.navigate("Invoices");
-        }, 500);
-      },
-    },
-
-    {
-      id: 3,
-      title: "سجل الطلبات",
-      icon:
-        selectedMenu === 3 ? (
-          <GradientOrderHistory
-            width={sizeHelper.calWp(40)}
-            height={sizeHelper.calWp(40)}
-          />
-        ) : (
-          <OrderHistory
-            width={sizeHelper.calWp(40)}
-            height={sizeHelper.calWp(40)}
-          />
-        ),
-      onPress: () => {
-        dispatch(setSelectedMenu(3));
-        setModalVisible(false);
-
-        setTimeout(() => {
-          navigation.navigate("OrderHistory");
-        }, 500);
-      },
-    },
-
-    {
-      id: 4,
-      title: "المحفظة",
-      icon:
-        selectedMenu === 4 ? (
-          <GradientWallet
-            width={sizeHelper.calWp(40)}
-            height={sizeHelper.calWp(40)}
-          />
-        ) : (
-          <Wallet width={sizeHelper.calWp(40)} height={sizeHelper.calWp(40)} />
-        ),
-      onPress: () => {
-        dispatch(setSelectedMenu(4));
-        setModalVisible(false);
-
-        setTimeout(() => {
-          navigation.navigate("WalletScreen");
-        }, 500);
-      },
-    },
+    { time: "16:53", address: "تسليم ل Adeeb Jawabra" },
   ];
 
-  // useEffect(() => {
-  //   if (isModalVisible) {
-  //     setTimeout(() => {
-  //       setIsShowModal(true);
-  //     }, 300);
-  //   } else {
-  //     setIsShowModal(false);
-  //   }
-  // }, [isModalVisible]);
+  const OrderTimelineContainer = ({ item, index }: any) => {
+    const isLast = index === OrderTimelineData.length - 1;
 
-  const OrderTimelineContainer = () => {
     return (
       <View style={{ alignSelf: "flex-end" }}>
         <View
-          style={{ flexDirection: "row-reverse", gap: sizeHelper.calWp(15) }}
+          style={{
+            flexDirection: "row-reverse",
+            gap: sizeHelper.calWp(15),
+            alignItems: "flex-start", // 🔑 FIX
+          }}
         >
+          {/* Time */}
           <CustomText
-            text={"16:52"}
+            text={item?.time}
             fontFam={fonts.IBMPlexSansArabic_Medium}
             fontWeight="600"
             color={theme.colors.jet_black}
-            size={30}
+            size={28}
           />
 
+          {/* Timeline + Checkbox */}
           <View
-            style={{ ...styles.checkBox, marginTop: sizeHelper.calHp(10) }}
-          />
-
-          <View
-            style={{ alignItems: "flex-end", marginTop: sizeHelper.calHp(5) }}
+            style={{
+              alignItems: "center",
+              marginBottom: sizeHelper.calHp(-11),
+            }}
           >
+            {/* Checkbox */}
+            <View
+              style={{
+                ...styles.checkBox,
+                marginTop: sizeHelper.calHp(10), // 🔑 align with address
+                backgroundColor: item?.isChecked
+                  ? theme.colors.check_green
+                  : "transparent",
+                borderWidth: item?.isChecked ? 0 : 1.3,
+                borderColor: theme.colors.border,
+              }}
+            >
+              {item?.isChecked && <TickIcon />}
+            </View>
+
+            {/* Vertical Line */}
+            {!isLast && (
+              <View
+                style={{
+                  width: sizeHelper.calWp(3.8),
+                  height: sizeHelper.calHp(65),
+                  backgroundColor: item?.isChecked
+                    ? theme.colors.check_green
+                    : theme.colors.border,
+                  // marginTop: sizeHelper.calHp(4),
+                }}
+              />
+            )}
+          </View>
+
+          {/* Text */}
+          <View style={{ alignItems: "flex-end" }}>
             <CustomText
-              text={"تم ألتقاط الطلب من X Cafe"}
+              text={item?.address}
               fontFam={fonts.IBMPlexSansArabic_Medium}
               fontWeight="600"
               size={22}
             />
-            <CustomText
-              text={"تم استلام في 1د و 20ث"}
-              color={theme.colors.steel_gray}
-              size={21}
-            />
+
+            {item?.order_received && (
+              <CustomText
+                text={item?.order_received}
+                color={theme.colors.steel_gray}
+                size={21}
+              />
+            )}
           </View>
         </View>
+      </View>
+    );
+  };
+
+  const OrderDetailContainer = ({ title, detail }: any) => {
+    return (
+      <View style={appStyles.rowjustify}>
+        <CustomText
+          text={detail}
+          fontFam={fonts.IBMPlexSansArabic_Medium}
+          fontWeight="600"
+          color={theme.colors.steel_gray}
+          size={22}
+        />
+
+        <CustomText
+          text={title}
+          fontFam={fonts.IBMPlexSansArabic_Medium}
+          fontWeight="600"
+          color={theme.colors.steel_gray}
+          size={22}
+        />
       </View>
     );
   };
@@ -209,10 +148,9 @@ const ViewOrderModal: React.FC<Props> = ({
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "rgba(0,0,0,.2)",
-          //   backgroundColor: isModalVisible?  'rgba(0,0,0,.4)':"transparent",
         }}
-        animationIn="slideInRight"
-        animationOut="slideOutRight"
+        animationIn="fadeIn"
+        animationOut="fadeOut"
         deviceWidth={windowWidth}
         isVisible={isModalVisible}
         onBackButtonPress={() => setModalVisible?.(false)}
@@ -227,6 +165,8 @@ const ViewOrderModal: React.FC<Props> = ({
       >
         <View style={styles.container}>
           <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => setModalVisible(false)}
             style={{ padding: sizeHelper.calWp(30), alignSelf: "flex-start" }}
           >
             <CrossBtn
@@ -273,114 +213,95 @@ const ViewOrderModal: React.FC<Props> = ({
               fontWeight="700"
               size={30}
             />
+            <View>
+              {OrderTimelineData.map((item, index) => {
+                return (
+                  <OrderTimelineContainer
+                    key={index.toString()}
+                    item={item}
+                    index={index}
+                  />
+                );
+              })}
+            </View>
+            <View style={styles.line} />
 
-            <OrderTimelineContainer />
-          </View>
-          {/* <View
-            style={{
-              alignSelf: "flex-end",
-              flexDirection: "row-reverse",
-              gap: sizeHelper.calWp(30),
-              alignItems: "center",
-            }}
-          >
-            <Image
-              style={{
-                width: sizeHelper.calWp(140),
-                height: sizeHelper.calWp(140),
-                borderRadius: sizeHelper.calWp(140),
-              }}
-              source={images.user}
+            <CustomText
+              text={"تفاصيل الطلب"}
+              style={{ alignSelf: "flex-end" }}
+              fontFam={fonts.IBMPlexSansArabic_Bold}
+              fontWeight="700"
+              size={30}
             />
-            <View style={{ alignItems: "flex-end" }}>
-              <GradientText
-                text={"اديب الجوابرة"}
-                size={27}
+
+            <View style={{ gap: sizeHelper.calHp(10) }}>
+              <OrderDetailContainer title={"فشافيش x1"} detail={"₪25"} />
+              <OrderDetailContainer title={"كوكتيل فواكة x1"} detail={"₪15"} />
+
+              <OrderDetailContainer title={"كابتشينو x1"} detail={"₪10"} />
+            </View>
+
+            <View style={styles.line} />
+
+            <View style={{ gap: sizeHelper.calHp(10) }}>
+              <OrderDetailContainer title={"رسوم التوصيل"} detail={"₪7"} />
+              <OrderDetailContainer title={"المجموع الفرعي"} detail={"₪57"} />
+            </View>
+
+            <View style={styles.line} />
+
+            <View style={{ gap: sizeHelper.calHp(10) }}>
+              <CustomText
+                text={"الموقع"}
+                style={{ alignSelf: "flex-end" }}
+                fontFam={fonts.IBMPlexSansArabic_Bold}
+                fontWeight="700"
+                size={30}
+              />
+
+              <View
                 style={{
-                  textAlign: "center",
+                  ...appStyles.row,
+                  alignSelf: "flex-end",
+                  gap: sizeHelper.calWp(10),
                 }}
               >
+                <LocationEmoji />
                 <CustomText
-                  text={"اديب الجوابرة"}
-                  fontFam={fonts.IBMPlexSansArabic_Bold}
-                  fontWeight="700"
-                  style={{ lineHeight: sizeHelper.calHp(40) }}
-                  size={34}
+                  text={"اللقية, بيت 1 حاره 1 شارع واحد"}
+                  fontFam={fonts.IBMPlexSansArabic_Medium}
+                  fontWeight="600"
+                  color={theme.colors.steel_gray}
+                  size={22}
                 />
-              </GradientText>
+              </View>
+            </View>
+            <View style={styles.line} />
+            <CustomText
+              text={"تفاصيل العميل"}
+              style={{ alignSelf: "flex-end" }}
+              fontFam={fonts.IBMPlexSansArabic_Bold}
+              fontWeight="700"
+              size={30}
+            />
+            <View style={styles.customer_btn}>
+              <View style={{ ...appStyles.row, gap: sizeHelper.calWp(15) }}>
+                <TouchableOpacity>
+                  <MessageIcon />
+                </TouchableOpacity>
 
+                <TouchableOpacity>
+                  <CallIcon />
+                </TouchableOpacity>
+              </View>
               <CustomText
-                text={"+972 50-123-1234"}
-                fontFam={fonts.IBMPlexSansArabic_Medium}
-                fontWeight="600"
-                style={{ lineHeight: sizeHelper.calHp(35) }}
-                size={22}
-              />
-
-              <CustomText
-                text={"info@yallajetk.com"}
-                fontFam={fonts.IBMPlexSansArabic_Medium}
-                fontWeight="600"
-                style={{ lineHeight: sizeHelper.calHp(35) }}
-                size={22}
+                text={"العميل 1"}
+                fontFam={fonts.IBMPlexSansArabic_Bold}
+                fontWeight="700"
+                size={30}
               />
             </View>
-          </View> */}
-
-          {/* <View style={{ flex: 1 }}>
-            {menuData.map((item, index) => {
-              return (
-                <TouchableOpacity
-                key={index.toString()}
-                  onPress={item?.onPress}
-                  style={{
-                    ...appStyles.row,
-                    gap: sizeHelper.calWp(15),
-                    alignSelf: "flex-end",
-                    paddingVertical: sizeHelper.calHp(17),
-                  }}
-                >
-                  <GradientText
-                    gradent={
-                      item?.id == selectedMenu
-                        ? ["#FB6D23", "#E91219"]
-                        : ["#333333", "#333333"]
-                    }
-                    text={"اديب الجوابرة"}
-                    size={27}
-                    style={{
-                      textAlign: "center",
-                    }}
-                  >
-                    <CustomText
-                      text={item?.title}
-                      fontFam={fonts.IBMPlexSansArabic_Bold}
-                      fontWeight="700"
-                      style={{ lineHeight: sizeHelper.calHp(40) }}
-                      size={30}
-                    />
-                  </GradientText>
-                  {item?.icon}
-                </TouchableOpacity>
-              );
-            })}
-          </View> */}
-
-          {/* <CustomButton
-            text="مركز خدمة الزبائن"
-            width={"100%"}
-            onPress={() =>
-              setTimeout(() => {
-                setModalVisible(false);
-              }, 500)
-            }
-            height={73}
-          >
-            <Headphone
-              width={sizeHelper.calWp(40)}
-              height={sizeHelper.calWp(40)}
-            />
-          </CustomButton> */}
+          </View>
         </View>
       </Modal>
     </>
@@ -405,10 +326,18 @@ const styles = StyleSheet.create({
     width: sizeHelper.calWp(30),
     height: sizeHelper.calWp(30),
     borderRadius: sizeHelper.calWp(30),
-    borderWidth: 1.3,
-    borderColor: theme.colors.border,
+
     alignItems: "center",
     justifyContent: "center",
+  },
+  customer_btn: {
+    borderWidth: 1,
+    borderColor: theme.colors.primary,
+    padding: sizeHelper.calWp(15),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#FEE2E2",
+    borderRadius: sizeHelper.calWp(25),
   },
 });
 

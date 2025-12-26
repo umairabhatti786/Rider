@@ -8,19 +8,14 @@ import {
   View,
 } from "react-native";
 import CustomText from "../../../components/Text";
-import { images } from "../../../assets/images";
 import ScreenLayout from "../../../components/ScreenLayout";
 import sizeHelper from "../../../utils/Helpers";
 import { theme } from "../../../utils/Themes";
 import CustomHeader from "../../../components/CustomHeader";
 import { appStyles } from "../../../utils/GlobalStyles";
-import GradientText from "../../../GradientText";
-
-import GradientOrderHistory from "../../../assets/svgs/gradientOrderHistory.svg";
 import { fonts } from "../../../utils/Themes/fonts";
 import LinearGradient from "react-native-linear-gradient";
 import { icons } from "../../../assets/icons";
-
 const WalletScreen = ({ navigation }: any) => {
   const [year, setYear] = useState(new Date().getFullYear());
 
@@ -116,7 +111,7 @@ const WalletScreen = ({ navigation }: any) => {
     );
   };
 
-    const handlePrev = () => {
+  const handlePrev = () => {
     const newYear = year - 1;
     setYear(newYear);
   };
@@ -181,13 +176,14 @@ const WalletScreen = ({ navigation }: any) => {
             ...appStyles.row,
             gap: sizeHelper.calWp(30),
             alignSelf: "center",
-            paddingBottom:sizeHelper.calHp(5)
+            paddingBottom: sizeHelper.calHp(5),
           }}
         >
-          <TouchableOpacity 
+          <TouchableOpacity
             activeOpacity={0.5}
-          onPress={handlePrev}
-          style={{ padding: sizeHelper.calWp(20) }}>
+            onPress={handlePrev}
+            style={{ padding: sizeHelper.calWp(20) }}
+          >
             <Image style={styles.arrows} source={icons.arrow_left} />
           </TouchableOpacity>
 
@@ -199,10 +195,11 @@ const WalletScreen = ({ navigation }: any) => {
             color={theme.colors.cool_gray}
           />
 
-          <TouchableOpacity 
-          activeOpacity={0.5}
-          onPress={handleNext}
-          style={{ padding: sizeHelper.calWp(20) }}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={handleNext}
+            style={{ padding: sizeHelper.calWp(20) }}
+          >
             <Image style={styles.arrows} source={icons.arrow_right} />
           </TouchableOpacity>
         </View>

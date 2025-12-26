@@ -1,25 +1,25 @@
 {
-  "root": "/Users/droidor/Documents/GitHub/Rider",
-  "reactNativePath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native",
+  "root": "/Users/umairabbas/Documents/GitHub/Rider",
+  "reactNativePath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native",
   "reactNativeVersion": "0.83",
   "dependencies": {
     "@react-native-masked-view/masked-view": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view",
       "name": "@react-native-masked-view/masked-view",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view/RNCMaskedView.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view/RNCMaskedView.podspec",
           "version": "0.3.2",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view/android",
           "packageImportPath": "import org.reactnative.maskedview.RNCMaskedViewPackage;",
           "packageInstance": "new RNCMaskedViewPackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/@react-native-masked-view/masked-view/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -28,17 +28,17 @@
       }
     },
     "react-native-gesture-handler": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-gesture-handler",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-gesture-handler",
       "name": "react-native-gesture-handler",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
           "version": "2.30.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-gesture-handler/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-gesture-handler/android",
           "packageImportPath": "import com.swmansion.gesturehandler.RNGestureHandlerPackage;",
           "packageInstance": "new RNGestureHandlerPackage()",
           "buildTypes": [],
@@ -47,7 +47,7 @@
             "RNGestureHandlerButtonComponentDescriptor",
             "RNGestureHandlerRootViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -56,22 +56,22 @@
       }
     },
     "react-native-linear-gradient": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-linear-gradient",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-linear-gradient",
       "name": "react-native-linear-gradient",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-linear-gradient/BVLinearGradient.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-linear-gradient/BVLinearGradient.podspec",
           "version": "2.8.3",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-linear-gradient/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-linear-gradient/android",
           "packageImportPath": "import com.BV.LinearGradient.LinearGradientPackage;",
           "packageInstance": "new LinearGradientPackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-linear-gradient/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-linear-gradient/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -80,23 +80,23 @@
       }
     },
     "react-native-reanimated": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-reanimated",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-reanimated",
       "name": "react-native-reanimated",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-reanimated/RNReanimated.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-reanimated/RNReanimated.podspec",
           "version": "4.2.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-reanimated/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-reanimated/android",
           "packageImportPath": "import com.swmansion.reanimated.ReanimatedPackage;",
           "packageInstance": "new ReanimatedPackage()",
           "buildTypes": [],
           "libraryName": "rnreanimated",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -105,17 +105,17 @@
       }
     },
     "react-native-safe-area-context": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-safe-area-context",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-safe-area-context",
       "name": "react-native-safe-area-context",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
           "version": "5.6.2",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-safe-area-context/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-safe-area-context/android",
           "packageImportPath": "import com.th3rdwave.safeareacontext.SafeAreaContextPackage;",
           "packageInstance": "new SafeAreaContextPackage()",
           "buildTypes": [],
@@ -124,7 +124,7 @@
             "RNCSafeAreaProviderComponentDescriptor",
             "RNCSafeAreaViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -133,17 +133,17 @@
       }
     },
     "react-native-screens": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-screens",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-screens",
       "name": "react-native-screens",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-screens/RNScreens.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-screens/RNScreens.podspec",
           "version": "4.19.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-screens/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-screens/android",
           "packageImportPath": "import com.swmansion.rnscreens.RNScreensPackage;",
           "packageInstance": "new RNScreensPackage()",
           "buildTypes": [],
@@ -163,7 +163,7 @@
             "RNSBottomTabsComponentDescriptor",
             "RNSSafeAreaViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -172,17 +172,17 @@
       }
     },
     "react-native-svg": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-svg",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-svg",
       "name": "react-native-svg",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-svg/RNSVG.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-svg/RNSVG.podspec",
           "version": "15.15.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-svg/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-svg/android",
           "packageImportPath": "import com.horcrux.svg.SvgPackage;",
           "packageInstance": "new SvgPackage()",
           "buildTypes": [],
@@ -218,7 +218,7 @@
             "RNSVGTSpanComponentDescriptor",
             "RNSVGUseComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -227,23 +227,23 @@
       }
     },
     "react-native-worklets": {
-      "root": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-worklets",
+      "root": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-worklets",
       "name": "react-native-worklets",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-worklets/RNWorklets.podspec",
+          "podspecPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-worklets/RNWorklets.podspec",
           "version": "0.7.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-worklets/android",
+          "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-worklets/android",
           "packageImportPath": "import com.swmansion.worklets.WorkletsPackage;",
           "packageInstance": "new WorkletsPackage()",
           "buildTypes": [],
           "libraryName": "rnworklets",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/droidor/Documents/GitHub/Rider/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/umairabbas/Documents/GitHub/Rider/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -414,7 +414,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "/Users/droidor/Documents/GitHub/Rider"
+          "default": "/Users/umairabbas/Documents/GitHub/Rider"
         },
         {
           "name": "--platform <string>",
@@ -716,7 +716,7 @@
   ],
   "project": {
     "ios": {
-      "sourceDir": "/Users/droidor/Documents/GitHub/Rider/ios",
+      "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/ios",
       "xcodeProject": {
         "name": "Rider.xcworkspace",
         "path": ".",
@@ -726,7 +726,7 @@
       "assets": []
     },
     "android": {
-      "sourceDir": "/Users/droidor/Documents/GitHub/Rider/android",
+      "sourceDir": "/Users/umairabbas/Documents/GitHub/Rider/android",
       "appName": "app",
       "packageName": "com.rider",
       "applicationId": "com.rider",

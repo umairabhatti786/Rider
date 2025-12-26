@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     gap: sizeHelper.calHp(30),
     paddingHorizontal: sizeHelper.calWp(36),
     marginTop: sizeHelper.calHp(14),
-        backgroundColor: theme.colors.background
+    backgroundColor: theme.colors.background
 
 
   },

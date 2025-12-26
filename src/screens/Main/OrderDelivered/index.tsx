@@ -1,0 +1,239 @@
+import React, { useMemo, useRef, useState } from "react";
+import { Image, StatusBar, View } from "react-native";
+import CustomText from "../../../components/Text";
+import { images } from "../../../assets/images";
+import ScreenLayout from "../../../components/ScreenLayout";
+import sizeHelper from "../../../utils/Helpers";
+import { theme } from "../../../utils/Themes";
+import CustomButton from "../../../components/Button";
+import { fonts } from "../../../utils/Themes/fonts";
+import OrderDetailModal from "../../../components/OrderDetailModal";
+import CustomMenu from "../../../components/CustomMenu";
+import { appStyles } from "../../../utils/GlobalStyles";
+import GradientText from "../../../GradientText";
+import Congratulations from "../../../assets/svgs/congratulations.svg";
+import GradientButton from "../../../components/GradientButton";
+
+const OrderDelivered = ({ navigation }: any) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isOffline, setIsOffline] = useState(true);
+  const isAcceptOrderSheetRef = useRef<any>(null);
+
+  return (
+    <ScreenLayout
+      backgroundColor={theme.colors.background}
+      style={{
+        flex: 1,
+        backgroundColor: theme.colors.background,
+        gap: sizeHelper.calHp(10),
+        paddingBottom:sizeHelper.calHp(30)
+      }}
+    >
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Congratulations
+          width={sizeHelper.calWp(200)}
+          height={sizeHelper.calWp(200)}
+        />
+        <View style={{marginTop:sizeHelper.calHp(50)}}>
+          <CustomText
+            text={"رائع, تم استلام الطلب الى العميل"}
+            size={30}
+            fontWeight={"600"}
+            fontFam={fonts.IBMPlexSansArabic_Medium}
+            style={{
+              alignSelf: "center",
+            }}
+          />
+
+          <CustomText
+          text={"احسنت, قم بالمزيد من الطلبات يا بطل."}
+            // size={25}
+            fontWeight={"700"}
+            color={theme.colors.graphite_gray}
+            fontFam={fonts.IBMPlexSansArabic_Bold}
+            style={{
+              alignSelf: "center",
+            }}
+          />
+        </View>
+      </View>
+     <GradientButton
+      style={{marginTop:sizeHelper.calHp(50)}}
+      text="التالي"
+      height={80}
+        width={'100%'}
+        onPress={() => navigation.goBack()}
+      />
+
+      {/* <CustomMenu isOffline={isOffline} setIsOffline={setIsOffline} />
+      <CustomText
+        text={"الطلبات الجديدة"}
+        size={36}
+        fontWeight={"700"}
+        style={{
+          marginTop: sizeHelper.calHp(70),
+          alignSelf: "flex-end",
+          fontFamily: fonts.IBMPlexSansArabic_Bold,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: theme.colors.white,
+          borderWidth: 1,
+          borderColor: "#ACB3BE",
+          borderRadius: sizeHelper.calWp(20),
+          shadowColor: theme.colors.black,
+          elevation: 2,
+          shadowRadius: 2,
+          padding: sizeHelper.calWp(12),
+        }}
+      >
+        <View
+          style={{ padding: sizeHelper.calWp(20), gap: sizeHelper.calHp(20) }}
+        >
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <View
+              style={{
+                backgroundColor: theme.colors.buttonbackground,
+                paddingHorizontal: sizeHelper.calWp(20),
+                paddingTop: sizeHelper.calHp(3),
+                borderRadius: 999,
+                alignItems: "center",
+                justifyContent: "center",
+                alignSelf: "flex-start",
+              }}
+            >
+              <CustomText
+                text={"#12345"}
+                size={22}
+                fontFam={fonts.IBMPlexSansArabic_Medium}
+                fontWeight="600"
+                color={theme.colors.primary}
+              />
+            </View>
+
+            <View>
+              <GradientText
+                text={"مقهى روقة | Roka Cafe"}
+                size={30}
+                fontWeight="700"
+                fontFamily={fonts.IBMPlexSansArabic_Bold}
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <CustomText
+                  text={"مقهى روقة | Roka Cafe"}
+                  size={30}
+                  fontFam={fonts.IBMPlexSansArabic_Bold}
+                  fontWeight="700"
+                />
+              </GradientText>
+
+              <CustomText
+                text={"الدوار الثاني, قرية اللقية - النقب "}
+                color={theme.colors.jet_black}
+                // size={22}
+              />
+            </View>
+          </View>
+
+          <View style={appStyles.rowjustify}>
+            <View
+              style={{
+                alignItems: "flex-end",
+                paddingLeft: sizeHelper.calWp(30),
+              }}
+            >
+              <CustomText
+                text={"طريقة الدفع:"}
+                color={theme.colors.graphite_gray}
+                size={21}
+              />
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: sizeHelper.calWp(10),
+                }}
+              >
+                <CustomText text={"نقداً"} size={30} fontWeight="700" />
+                <CashIcon />
+              </View>
+            </View>
+
+            <View
+              style={{
+                alignItems: "flex-end",
+              }}
+            >
+              <CustomText
+                text={"المكسب:"}
+                color={theme.colors.graphite_gray}
+                size={21}
+              />
+              <CustomText
+                text={"₪ 25"}
+                size={30}
+                fontWeight="700"
+                fontFam={fonts.IBMPlexSansArabic_Bold}
+              />
+            </View>
+          </View>
+        </View>
+
+        <View
+          style={{
+            gap: sizeHelper.calWp(20),
+            paddingBottom: sizeHelper.calHp(10),
+          }}
+        >
+          <CustomButton
+            text="قبول الطلب"
+            textColor={"#15803D"}
+            bgColor={"#C3E3D0"}
+            width={"100%"}
+            onPress={() => isAcceptOrderSheetRef.current.present()}
+            height={73}
+            borderRadius={12}
+          />
+          <CustomButton
+            // text="قبول الطلب"
+            borderWidth={1}
+            height={75}
+            borderColor={"#FA6E23"}
+            bgColor={theme.colors.background}
+            borderRadius={12}
+            onPress={() => setIsModalVisible(true)}
+          >
+            <GradientText
+              size={30}
+              fontWeight="700"
+              fontFamily={fonts.IBMPlexSansArabic_Bold}
+              style={{
+                textAlign: "center",
+              }}
+            >
+              <CustomText
+                text={"التفاصيل"}
+                size={30}
+                fontFam={fonts.IBMPlexSansArabic_Bold}
+                fontWeight="700"
+              />
+            </GradientText>
+          </CustomButton>
+        </View>
+      </View> */}
+    </ScreenLayout>
+  );
+};
+
+export default OrderDelivered;

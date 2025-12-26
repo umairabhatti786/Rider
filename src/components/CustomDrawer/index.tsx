@@ -98,7 +98,7 @@ const CustomDrawer: React.FC<Props> = ({ isModalVisible, setModalVisible }) => {
         setModalVisible(false);
 
         setTimeout(() => {
-          // navigation.navigate("Invoices");
+          navigation.navigate("TransactionsScreen");
         }, 500);
       },
     },

@@ -8,6 +8,8 @@ import OrderPage from "../../screens/Main/OrderPage";
 import CaptainSettings from "../../screens/Main/CaptainSettings";
 import OrderHistory from "../../screens/Main/OrderHistory";
 import WalletScreen from "../../screens/Main/Wallet";
+import TransactionsScreen from "../../screens/Main/Transactions";
+import OrderDelivered from "../../screens/Main/OrderDelivered";
 
 const Stack = createNativeStackNavigator<any>();
 const AppStack = () => {
@@ -25,7 +27,9 @@ const AppStack = () => {
           <Stack.Screen name="OrderHistory" component={OrderHistory} />
                     <Stack.Screen name="WalletScreen" component={WalletScreen} />
 
+                    <Stack.Screen name="TransactionsScreen" component={TransactionsScreen} />
 
+                    <Stack.Screen name="OrderDelivered" component={OrderDelivered} />
 
 
 

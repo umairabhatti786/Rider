@@ -1,0 +1,1 @@
+/Users/umairabbas/Documents/GitHub/Rider/android/app/build/intermediates/cxx/Debug/2b213l64/obj/arm64-v8a
