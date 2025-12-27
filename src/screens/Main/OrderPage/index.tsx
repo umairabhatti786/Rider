@@ -233,7 +233,7 @@ function OrderPage({ navigation }: any) {
             isDeliverOrderSheetRef?.current?.dismiss();
             setTimeout(() => {
               navigation.navigate("OrderDelivered");
-            }, 500);
+            }, 300);
           }}
           onClose={() => isDeliverOrderSheetRef?.current?.dismiss()}
         />

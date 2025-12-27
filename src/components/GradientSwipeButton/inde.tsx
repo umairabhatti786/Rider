@@ -55,17 +55,17 @@ const GradientSwipeButton = ({ onSwipe }: any) => {
     transform: [{ translateX: translateX.value }],
   }));
 
-  /** Text fade animation */
-  const animatedTextStyle = useAnimatedStyle(() => {
-    const opacity = interpolate(
-      translateX.value,
-      [SWIPE_WIDTH, SWIPE_WIDTH * 0.4, 0],
-      [1, 0.3, 0],
-      Extrapolate.CLAMP
-    );
+   /** 🔥 Text fades ONLY when swiping LEFT */
+ const animatedTextStyle = useAnimatedStyle(() => {
+  const opacity = interpolate(
+    translateX.value,
+    [SWIPE_WIDTH, 0], // 🔥 from right → left
+    [1, 0],           // 🔥 visible → hidden
+    Extrapolate.CLAMP
+  );
 
-    return { opacity };
-  });
+  return { opacity };
+});
 
   return (
     <View style={styles.container}>
