@@ -16,38 +16,10 @@ import { appStyles } from "../../../utils/GlobalStyles";
 import { fonts } from "../../../utils/Themes/fonts";
 import LinearGradient from "react-native-linear-gradient";
 import { icons } from "../../../assets/icons";
+import { EarningData } from "../../../utils/Data";
 const WalletScreen = ({ navigation }: any) => {
   const [year, setYear] = useState(new Date().getFullYear());
 
-  const EarningData = [
-    {
-      orderId: "#12122",
-      Id_number: "120312837128",
-      method: "نقدي",
-      date: "يوم الخميس - 20/12",
-      price: "₪936.14",
-      orders: "36",
-      total_distance: "224 كم",
-    },
-    {
-      orderId: "#12122",
-      Id_number: "120312837128",
-      method: "نقدي",
-      date: "يوم الاربعاء - 19/12",
-      price: "₪237.40",
-      orders: "36",
-      total_distance: "224 كم",
-    },
-    {
-      orderId: "#12122",
-      Id_number: "120312837128",
-      method: "نقدي",
-      date: "يوم الثلاثاء - 18/12",
-      price: "₪611.31",
-      orders: "36",
-      total_distance: "224 كم",
-    },
-  ];
 
   const EarningItem = ({ item, index }: any) => {
     return (
@@ -141,12 +113,7 @@ const WalletScreen = ({ navigation }: any) => {
             alignItems: "flex-end",
           }}
         >
-          <CustomText
-            text={"رصيدي"}
-            size={25}
-            color={theme.colors.white}
-            //   style={{ alignSelf: "flex-end", marginRight: sizeHelper.calWp(30) }}
-          />
+          <CustomText text={"رصيدي"} size={25} color={theme.colors.white} />
 
           <View style={{ ...appStyles.row, gap: sizeHelper.calWp(20) }}>
             <Image
@@ -165,7 +132,6 @@ const WalletScreen = ({ navigation }: any) => {
               color={theme.colors.white}
               fontWeight="700"
               fontFam={fonts.IBMPlexSansArabic_Bold}
-              //   style={{ alignSelf: "flex-end", marginRight: sizeHelper.calWp(30) }}
             />
           </View>
         </View>
@@ -227,7 +193,6 @@ const WalletScreen = ({ navigation }: any) => {
               />
               <CustomText
                 text={"₪1784.85"}
-                //   size={45}
                 fontFam={fonts.IBMPlexSansArabic_Bold}
                 fontWeight="700"
               />
@@ -249,7 +214,6 @@ const WalletScreen = ({ navigation }: any) => {
               />
               <CustomText
                 text={"₪1784.85"}
-                //   size={45}
                 fontFam={fonts.IBMPlexSansArabic_Bold}
                 fontWeight="700"
               />

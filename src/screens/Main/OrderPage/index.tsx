@@ -1,13 +1,11 @@
 import React, { useMemo, useRef, useState } from "react";
-import { Image, StatusBar, View } from "react-native";
+import { View } from "react-native";
 import CustomText from "../../../components/Text";
-import { images } from "../../../assets/images";
 import ScreenLayout from "../../../components/ScreenLayout";
 import sizeHelper from "../../../utils/Helpers";
 import { theme } from "../../../utils/Themes";
 import CustomButton from "../../../components/Button";
 import { fonts } from "../../../utils/Themes/fonts";
-import OrderDetailModal from "../../../components/OrderDetailModal";
 import CustomMenu from "../../../components/CustomMenu";
 import { appStyles } from "../../../utils/GlobalStyles";
 import GradientText from "../../../GradientText";
@@ -104,7 +102,6 @@ function OrderPage({ navigation }: any) {
               <CustomText
                 text={"الدوار الثاني, قرية اللقية - النقب "}
                 color={theme.colors.jet_black}
-                // size={22}
               />
             </View>
           </View>
@@ -169,7 +166,6 @@ function OrderPage({ navigation }: any) {
             borderRadius={12}
           />
           <CustomButton
-            // text="قبول الطلب"
             borderWidth={1}
             height={75}
             borderColor={"#FA6E23"}
@@ -206,7 +202,7 @@ function OrderPage({ navigation }: any) {
 
             setTimeout(() => {
               isPickupOrderSheetRef?.current?.present();
-            }, 500);
+            }, 300);
           }}
           onClose={() => isAcceptOrderSheetRef?.current?.dismiss()}
         />
@@ -222,7 +218,7 @@ function OrderPage({ navigation }: any) {
 
             setTimeout(() => {
               isDeliverOrderSheetRef?.current?.present();
-            }, 500);
+            }, 300);
           }}
           onClose={() => isPickupOrderSheetRef?.current?.dismiss()}
         />
@@ -237,7 +233,7 @@ function OrderPage({ navigation }: any) {
             isDeliverOrderSheetRef?.current?.dismiss();
             setTimeout(() => {
               navigation.navigate("OrderDelivered");
-            }, 1000);
+            }, 500);
           }}
           onClose={() => isDeliverOrderSheetRef?.current?.dismiss()}
         />

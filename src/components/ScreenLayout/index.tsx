@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: sizeHelper.calHp(30),
     paddingHorizontal: sizeHelper.calWp(36),
-    marginTop: sizeHelper.calHp(14),
+    marginTop: sizeHelper.calHp(Platform.OS=="ios"?0: 14),
     backgroundColor: theme.colors.background
 
 

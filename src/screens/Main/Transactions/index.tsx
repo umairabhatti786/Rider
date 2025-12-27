@@ -122,38 +122,30 @@ const TransactionsScreen = ({ navigation }: any) => {
     );
   };
 
-  const handlePrev = () => {
-    const newYear = year - 1;
-    setYear(newYear);
-  };
-
-  const handleNext = () => {
-    const newYear = year + 1;
-    setYear(newYear);
-  };
-
   return (
-    <ScreenLayout style={{ paddingHorizontal: sizeHelper.calWp(-1),gap:sizeHelper.calHp(20) }}>
+    <ScreenLayout
+      style={{
+        paddingHorizontal: sizeHelper.calWp(-1),
+        gap: sizeHelper.calHp(20),
+      }}
+    >
       <View
         style={{
           paddingHorizontal: sizeHelper.calWp(30),
           gap: sizeHelper.calHp(20),
         }}
-
       >
         <CustomHeader title={"المعاملات"} />
 
         <CustomSearch placeholder={"البحث عن المعاملات .."} />
       </View>
-      <CustomCalendar/>
+      <CustomCalendar />
 
       <View
         style={{
           paddingHorizontal: sizeHelper.calWp(30),
         }}
       >
-     
-
         <View
           style={{
             padding: sizeHelper.calWp(30),
@@ -190,7 +182,6 @@ const TransactionsScreen = ({ navigation }: any) => {
 
       <View
         style={{
-        //   paddingTop: sizeHelper.calHp(20),
           paddingHorizontal: sizeHelper.calWp(30),
         }}
       >

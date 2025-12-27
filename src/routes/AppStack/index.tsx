@@ -15,25 +15,21 @@ const Stack = createNativeStackNavigator<any>();
 const AppStack = () => {
   return (
     <>
-
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="OfflinePage" component={OfflinePage} />
         <Stack.Screen name="OrderPage" component={OrderPage} />
-          <Stack.Screen name="CaptainSettings" component={CaptainSettings} />
-          <Stack.Screen name="OrderHistory" component={OrderHistory} />
-                    <Stack.Screen name="WalletScreen" component={WalletScreen} />
+        <Stack.Screen name="CaptainSettings" component={CaptainSettings} />
+        <Stack.Screen name="OrderHistory" component={OrderHistory} />
+        <Stack.Screen name="WalletScreen" component={WalletScreen} />
 
-                    <Stack.Screen name="TransactionsScreen" component={TransactionsScreen} />
+        <Stack.Screen
+          name="TransactionsScreen"
+          component={TransactionsScreen}
+        />
 
-                    <Stack.Screen name="OrderDelivered" component={OrderDelivered} />
-
-
-
-
+        <Stack.Screen name="OrderDelivered" component={OrderDelivered} />
       </Stack.Navigator>
     </>
   );

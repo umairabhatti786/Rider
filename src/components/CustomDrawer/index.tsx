@@ -74,7 +74,7 @@ const CustomDrawer: React.FC<Props> = ({ isModalVisible, setModalVisible }) => {
 
         setTimeout(() => {
           navigation.navigate("CaptainSettings");
-        }, 500);
+        }, 300);
       },
     },
 
@@ -99,7 +99,7 @@ const CustomDrawer: React.FC<Props> = ({ isModalVisible, setModalVisible }) => {
 
         setTimeout(() => {
           navigation.navigate("TransactionsScreen");
-        }, 500);
+        }, 300);
       },
     },
 
@@ -124,7 +124,7 @@ const CustomDrawer: React.FC<Props> = ({ isModalVisible, setModalVisible }) => {
 
         setTimeout(() => {
           navigation.navigate("OrderHistory");
-        }, 500);
+        }, 300);
       },
     },
 
@@ -146,7 +146,7 @@ const CustomDrawer: React.FC<Props> = ({ isModalVisible, setModalVisible }) => {
 
         setTimeout(() => {
           navigation.navigate("WalletScreen");
-        }, 500);
+        }, 300);
       },
     },
   ];
@@ -279,7 +279,8 @@ const CustomDrawer: React.FC<Props> = ({ isModalVisible, setModalVisible }) => {
 
           <CustomButton
             text="مركز خدمة الزبائن"
-            width={"100%"}
+            width={"85%"}
+            style={{alignSelf:"center"}}
             onPress={() =>
               setTimeout(() => {
                 setModalVisible(false);
@@ -302,7 +303,7 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "80%",
-    paddingTop: "10%",
+    paddingTop: Platform.OS=="ios"?"25%": "10%",
     backgroundColor: theme.colors.white,
     gap: sizeHelper.calHp(70),
     paddingBottom: sizeHelper.calHp(50),

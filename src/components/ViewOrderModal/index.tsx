@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Pressable,
+  ScrollView,
 } from "react-native";
 import Modal from "react-native-modal";
 import { theme } from "../../utils/Themes";
@@ -174,6 +175,8 @@ const ViewOrderModal: React.FC<Props> = ({
               height={sizeHelper.calWp(30)}
             />
           </TouchableOpacity>
+          <ScrollView>
+
 
           <View
             style={{
@@ -302,6 +305,9 @@ const ViewOrderModal: React.FC<Props> = ({
               />
             </View>
           </View>
+
+                    </ScrollView>
+
         </View>
       </Modal>
     </>
@@ -310,7 +316,7 @@ const ViewOrderModal: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   container: {
-    // height: "100%",
+    height: "95%",
     width: "85%",
     backgroundColor: theme.colors.white,
     paddingBottom: sizeHelper.calHp(50),

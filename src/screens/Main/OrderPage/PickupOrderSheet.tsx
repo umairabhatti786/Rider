@@ -3,7 +3,6 @@ import { TouchableOpacity, View, StyleSheet } from "react-native";
 import CustomText from "../../../components/Text";
 import sizeHelper from "../../../utils/Helpers";
 import { appStyles } from "../../../utils/GlobalStyles";
-
 import CrossBtn from "../../../assets/svgs/cross.svg";
 import GradientSwipeButton from "../../../components/GradientSwipeButton/inde";
 import { fonts } from "../../../utils/Themes/fonts";
@@ -91,7 +90,6 @@ const PickupOrderSheet = ({ onComplete, onClose }: any) => {
                   text={"موقع العميل"}
                   fontFam={fonts.IBMPlexSansArabic_SemiBold}
                   fontWeight="600"
-                  // size={23}
                   color={theme.colors.white}
                 />
               </View>
@@ -117,7 +115,6 @@ const PickupOrderSheet = ({ onComplete, onClose }: any) => {
                 text={"موقع المطعم"}
                 fontFam={fonts.IBMPlexSansArabic_SemiBold}
                 fontWeight="600"
-                // size={23}
                 color={theme.colors.white}
               />
             </View>
@@ -130,7 +127,6 @@ const PickupOrderSheet = ({ onComplete, onClose }: any) => {
               text={"المسافة لنوصيل الطلب: "}
               fontFam={fonts.IBMPlexSansArabic_SemiBold}
               fontWeight="600"
-              // size={23}
               color={theme.colors.steel_gray}
             />
 
@@ -181,7 +177,6 @@ const PickupOrderSheet = ({ onComplete, onClose }: any) => {
                     ? "من مكسيكاني اللقية"
                     : "الى [اسم العميل], [العنوان المحفوظ]"
                 }
-                // size={22}
                 fontFam={fonts.IBMPlexSansArabic_SemiBold}
                 fontWeight="600"
               />
@@ -189,8 +184,13 @@ const PickupOrderSheet = ({ onComplete, onClose }: any) => {
           </View>
         </View>
         {activeTab == 0 ? (
-            
-          <View style={{ gap: sizeHelper.calHp(10), alignSelf: "flex-end" ,paddingRight:sizeHelper.calWp(40) }}>
+          <View
+            style={{
+              gap: sizeHelper.calHp(10),
+              alignSelf: "flex-end",
+              paddingRight: sizeHelper.calWp(40),
+            }}
+          >
             <CustomText
               text={"شاورما دجاج x1"}
               fontWeight="600"
@@ -320,15 +320,6 @@ const PickupOrderSheet = ({ onComplete, onClose }: any) => {
         </View>
         <GradientSwipeButton onSwipe={onComplete} />
       </View>
-
-      {/* <GradientButton
-        text="قبول الطلب"
-        width={'100%'}
-        height={100}
-        borderRadius={100}
-        marginTop={sizeHelper.calHp(50)}
-        // onPress={() => setIsVisible(false)}
-      /> */}
     </View>
   );
 };
@@ -340,28 +331,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.white,
     width: sizeHelper.calWp(75),
     height: sizeHelper.calWp(75),
-    // : sizeHelper.calWp(20),
     borderRadius: sizeHelper.calWp(75),
     shadowColor: theme.colors.black,
     shadowRadius: 3,
     elevation: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  offline_container: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: theme.colors.white,
-    paddingHorizontal: sizeHelper.calWp(15),
-    width: sizeHelper.calWp(270),
-
-    paddingVertical: sizeHelper.calHp(8),
-    borderRadius: sizeHelper.calWp(999),
-    shadowColor: theme.colors.black,
-    shadowRadius: 3,
-    elevation: 3,
-    gap: sizeHelper.calWp(20),
-    alignSelf: "center",
   },
 
   line: {

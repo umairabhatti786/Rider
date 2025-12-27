@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
-import { Image, StatusBar, StyleSheet, View } from 'react-native';
+import {StyleSheet, View } from 'react-native';
 import CustomText from '../../../components/Text';
-import { images } from '../../../assets/images';
 import ScreenLayout from '../../../components/ScreenLayout';
 import sizeHelper from '../../../utils/Helpers';
 import { theme } from '../../../utils/Themes';
-import CustomInput from '../../../components/Input';
-import { icons } from '../../../assets/icons';
 import CustomButton from '../../../components/Button';
-import SimpleToggleButton from '../../../components/SimpleToggleButton';
-import DrawerIcon from '../../../assets/svgs/drawer.svg';
-import HeadphoneIcon from '../../../assets/svgs/headphone.svg';
-import { fonts } from '../../../utils/Themes/fonts';
 import OfflineStatusImg from '../../../assets/svgs/offlineStatus.svg';
 import CustomMenu from '../../../components/CustomMenu';
 
 function OfflinePage({ navigation }: any) {
   const [isOffline, setIsOffline] = useState(false);
-  const [isConfirmPassword, setIsConfirmPassword] = useState(false);
   return (
     <ScreenLayout
     >
@@ -29,7 +21,6 @@ function OfflinePage({ navigation }: any) {
         style={{
           alignItems: 'center',
           marginTop: sizeHelper.calHp(150),
-          // gap: sizeHelper.calWp(5),
         }}
       >
         <CustomText
@@ -48,7 +39,6 @@ function OfflinePage({ navigation }: any) {
       </View>
       <View
         style={{
-          // marginTop: sizeHelper.calHp(50),
           alignItems: 'center',
           justifyContent: 'center',
         }}
@@ -82,27 +72,6 @@ function OfflinePage({ navigation }: any) {
 
 export default OfflinePage;
 const styles = StyleSheet.create({
-  box: {
-    backgroundColor: theme.colors.white,
-    padding: sizeHelper.calWp(20),
-    borderRadius: sizeHelper.calWp(999),
-    shadowColor: theme.colors.black,
-    shadowRadius: 3,
-    elevation: 3,
-  },
-  offline_container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: theme.colors.white,
-    paddingHorizontal: sizeHelper.calWp(15),
-    paddingVertical: sizeHelper.calHp(10),
-    borderRadius: sizeHelper.calWp(999),
-    shadowColor: theme.colors.black,
-    shadowRadius: 3,
-    elevation: 3,
-    gap: sizeHelper.calWp(20),
-    alignSelf: 'center',
-  },
   botton_container: {
     flexDirection: 'row',
     justifyContent: 'center',

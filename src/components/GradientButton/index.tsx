@@ -22,8 +22,6 @@ const GradientText = ({
   disable = false,
   borderWidth,
   paddingHorizontal,
-  fontWeight,
-  children,
   marginTop,
 }: ButtonProps) => {
   const memoizedStyle = useMemo(() => {

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Image,
-  StatusBar,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -14,54 +13,18 @@ import { theme } from "../../../utils/Themes";
 import CustomInput from "../../../components/Input";
 import { icons } from "../../../assets/icons";
 import CustomButton from "../../../components/Button";
-import SimpleToggleButton from "../../../components/SimpleToggleButton";
 import AddPhoto from "../../../assets/svgs/addPhoto.svg";
-import HeadphoneIcon from "../../../assets/svgs/headphone.svg";
 import { fonts } from "../../../utils/Themes/fonts";
-import OfflineStatusImg from "../../../assets/svgs/offlineStatus.svg";
-import CustomMenu from "../../../components/CustomMenu";
 import CustomHeader from "../../../components/CustomHeader";
 import GradientButton from "../../../components/GradientButton";
 import { appStyles } from "../../../utils/GlobalStyles";
 import GradientText from "../../../GradientText";
-import CustomDropDown from "../../../components/CustomDropDown";
 import PhoneNumberInput from "../../../components/PhoneNumberInput/indexx";
 
 const CaptainSettings = ({ navigation }: any) => {
-  const [isOffline, setIsOffline] = useState(false);
   const [isConfirmPassword, setIsConfirmPassword] = useState(false);
   const [isNewPassword, setIsNewPassword] = useState(false);
   const [isCurrentPassword, setIsCurrentPassword] = useState(false);
-
-  const [selectedCountry, setSelectedCountry] = useState<any>({});
-
-  const countryData = [
-    {
-      icon: images.nigeria,
-      name: "نيجيريا",
-      id: 1,
-      code: "NGN",
-      currency: "Nigerian Naira",
-      symbol: "₦",
-    },
-    {
-      icon: images.pakistan,
-      name: "باكستان",
-      id: 2,
-      code: "PKR",
-      currency: "Pakistani Rupee",
-      symbol: "₨",
-    },
-    {
-      icon: images.india,
-      name: "الهند",
-      id: 4,
-      code: "INR",
-      currency: "Indian Rupee",
-      symbol: "₹",
-    },
-  ];
-
   return (
     <ScreenLayout>
       <CustomHeader title={"أعدادات الكابتن"} />
@@ -209,6 +172,3 @@ const CaptainSettings = ({ navigation }: any) => {
 };
 
 export default CaptainSettings;
-const styles = StyleSheet.create({
-
-});
